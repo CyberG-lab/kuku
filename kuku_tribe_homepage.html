@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuku Kisumu — Quality White Meat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:   #1B3A2D;
+    --green-light: #234d3b;
+    --cream:   #F5F0E8;
+    --ivory:   #FAFAF7;
+    --amber:   #C8922A;
+    --amber-dark: #A67520;
+    --charcoal:#2C2C2C;
+    --grey:    #767676;
+    --card-bg: #FFFFFF;
+    --footer:  #1A1A1A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    background: var(--ivory);
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BAR ──────────────────────────────── */
+  .topbar {
+    background: var(--green);
+    color: var(--cream);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    padding: 10px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar a { color: var(--cream); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--amber); }
+  .topbar svg { width:16px; height:16px; fill:currentColor; }
+
+  /* ── NAVIGATION ───────────────────────────── */
+  nav {
+    background: var(--ivory);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(27,58,45,0.08);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .nav-logo .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; color: var(--green); letter-spacing: 0.02em; }
+  .nav-logo .tagline { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-top: 2px; }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px; background:var(--amber); transition:width 0.25s; }
+  .nav-links a:hover { color: var(--green); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-actions { display: flex; align-items: center; gap: 20px; }
+  .nav-actions button { background: none; border: none; cursor: pointer; color: var(--charcoal); display: flex; align-items: center; transition: color 0.2s; }
+  .nav-actions button:hover { color: var(--green); }
+  .nav-actions svg { width: 20px; height: 20px; }
+  .cart-btn { position: relative; }
+  .cart-badge { position: absolute; top: -6px; right: -6px; background: var(--amber); color: #fff; font-size: 0.6rem; font-weight: 600; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: var(--green);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(27,58,45,0.82) 0%, rgba(27,58,45,0.3) 60%, transparent 100%),
+      url('chicken parts/chicken whole leg.jpg') center/cover no-repeat;
+    transform: scale(1.04);
+    transition: transform 8s ease-out;
+  }
+  .hero-bg.loaded { transform: scale(1); }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 48px 80px;
+    max-width: 620px;
+    animation: heroFadeUp 0.9s ease both 0.2s;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before { content:''; width:32px; height:1.5px; background:var(--amber); }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--amber); }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 440px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--amber);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--amber-dark); transform: translateY(-2px); }
+  .btn-primary svg { width:16px; height:16px; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    right: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4)); animation: scrollPulse 2s ease-in-out infinite; }
+
+  /* ── TRUST STRIP ──────────────────────────── */
+  .trust-strip {
+    background: var(--cream);
+    border-top: 3px solid var(--green);
+    padding: 36px 48px;
+  }
+  .trust-grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .trust-item.visible { opacity: 1; transform: translateY(0); }
+  .trust-icon {
+    width: 44px; height: 44px;
+    background: var(--green);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .trust-icon svg { width: 20px; height: 20px; stroke: var(--cream); fill: none; stroke-width: 1.8; }
+  .trust-label { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--green); margin-bottom: 2px; }
+  .trust-desc { font-size: 0.75rem; color: var(--grey); line-height: 1.4; }
+
+  /* ── SECTION SHARED ───────────────────────── */
+  section { padding: 96px 48px; }
+  .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem);
+    font-weight: 600;
+    color: var(--green);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .section-sub { font-size: 0.9rem; color: var(--grey); max-width: 480px; line-height: 1.7; }
+  .section-header { margin-bottom: 52px; }
+
+  /* ── CATEGORIES ───────────────────────────── */
+  .categories { background: var(--ivory); }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .cat-tile {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .cat-tile img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .cat-tile:hover img { transform: scale(1.06); }
+  .cat-tile-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(27,58,45,0.85) 0%, transparent 55%);
+    transition: background 0.3s;
+  }
+  .cat-tile:hover .cat-tile-overlay { background: linear-gradient(to top, rgba(27,58,45,0.92) 0%, rgba(27,58,45,0.15) 55%); }
+  .cat-tile-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px 20px;
+  }
+  .cat-tile-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .cat-tile-count { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+  .cat-tile-arrow {
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .cat-tile:hover .cat-tile-arrow { opacity: 1; transform: translateY(0); }
+  .cat-tile-arrow svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2; }
+
+  /* ── PRODUCTS ─────────────────────────────── */
+  .products { background: var(--cream); }
+  .products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
+  .view-all { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); text-decoration: none; display: flex; align-items: center; gap: 6px; border-bottom: 1.5px solid var(--green); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+  .view-all:hover { color: var(--amber); border-color: var(--amber); }
+  .view-all svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .product-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.28s ease;
+  }
+  .product-card.visible { opacity: 1; transform: translateY(0); }
+  .product-card:hover { box-shadow: 0 16px 48px rgba(27,58,45,0.13); transform: translateY(-4px); }
+
+  .product-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: #f0ede8;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .product-img { transform: scale(1.04); }
+  .product-img-wrap { overflow: hidden; position: relative; }
+
+  .product-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--amber);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .product-body { padding: 18px 20px 20px; }
+  .product-unit { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey); margin-bottom: 6px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--charcoal); margin-bottom: 12px; line-height: 1.3; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; }
+  .product-price { font-size: 1rem; font-weight: 700; color: var(--amber); }
+  .add-to-cart {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--green);
+    background: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .add-to-cart svg { width: 14px; height: 14px; stroke: var(--green); fill: none; stroke-width: 2; transition: stroke 0.2s; }
+  .add-to-cart:hover { background: var(--green); border-color: var(--green); }
+  .add-to-cart:hover svg { stroke: #fff; }
+
+  /* ── STORY STRIP ──────────────────────────── */
+  .story {
+    background: var(--green);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+  }
+  .story-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    min-height: 480px;
+    display: block;
+  }
+  .story-content {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .story-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+  .story h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.7rem); font-weight: 600; color: #fff; line-height: 1.18; margin-bottom: 22px; }
+  .story h2 em { font-style: italic; color: var(--amber); }
+  .story p { font-size: 0.9rem; color: rgba(255,255,255,0.72); line-height: 1.85; margin-bottom: 36px; }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cream);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.25s, background 0.25s;
+    align-self: flex-start;
+  }
+  .btn-outline:hover { border-color: var(--amber); background: rgba(200,146,42,0.12); }
+  .btn-outline svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* ── TESTIMONIALS ─────────────────────────── */
+  .testimonials { background: var(--ivory); text-align: center; }
+  .testimonials .section-header { text-align: center; }
+  .testimonials .section-sub { margin: 0 auto; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 36px 30px;
+    text-align: left;
+    border: 1px solid rgba(27,58,45,0.07);
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .testi-card.visible { opacity: 1; transform: translateY(0); }
+  .testi-quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--amber);
+    line-height: 0.5;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+  .testi-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--charcoal); line-height: 1.7; margin-bottom: 24px; }
+  .testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+  .testi-stars svg { width: 14px; height: 14px; fill: var(--amber); }
+  .testi-author { font-size: 0.8rem; font-weight: 600; color: var(--green); }
+  .testi-location { font-size: 0.74rem; color: var(--grey); }
+
+  /* ── FOOTER ───────────────────────────────── */
+  footer {
+    background: var(--footer);
+    color: rgba(255,255,255,0.65);
+    padding: 72px 48px 36px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 60px;
+  }
+  .footer-brand .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: #fff; }
+  .footer-brand .tagline { font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-top: 2px; margin-bottom: 16px; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.75; max-width: 260px; }
+  .footer-title { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 0.84rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber); }
+  .footer-contact { display: flex; flex-direction: column; gap: 12px; }
+  .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; }
+  .footer-contact-item svg { width: 14px; height: 14px; stroke: var(--amber); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 2px; }
+  .payment-wrap { margin-top: 20px; }
+  .payment-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 10px; }
+  .mpesa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #4CAF50;
+  }
+  .social-icons { display: flex; gap: 12px; margin-top: 4px; }
+  .social-icon { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, background 0.2s; text-decoration: none; }
+  .social-icon svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.55); fill: none; stroke-width: 1.8; }
+  .social-icon:hover { border-color: var(--amber); background: rgba(200,146,42,0.1); }
+  .social-icon:hover svg { stroke: var(--amber); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.76rem;
+  }
+
+  /* ── WHATSAPP FLOAT ───────────────────────── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 52px; height: 52px;
+    background: #25d348;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 49, 0.4);
+    z-index: 200;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+
+  /* ── ANIMATIONS ───────────────────────────── */
+  @keyframes heroFadeUp { from { opacity:0; transform: translateY(28px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
+
+  /* ── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 1024px) {
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+  @media (max-width: 768px) {
+    .topbar { padding: 10px 20px; }
+    nav { padding: 0 20px; height: 64px; }
+    .nav-links { display: none; }
+    section { padding: 72px 20px; }
+    .hero-content { padding: 0 20px 64px; }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .story { grid-template-columns: 1fr; }
+    .story-img { min-height: 300px; max-height: 340px; }
+    .story-content { padding: 52px 28px; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>🚚 Same-day delivery in Kisumu &amp; surrounds — Order before 12PM</span>
+  <a href="https://wa.me/25478025430">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.335-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.822 9.822 0 01-5.002-1.369l-.36-.212-3.72.887.924-3.623-.235-.373A9.787 9.787 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182c5.41 0 9.818 4.408 9.818 9.818 0 5.41-4.408 9.818-9.818 9.818z"/></svg>
+    +254 780 25430
+  </a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <span class="brand">Kuku Kisumu</span>
+    <span class="tagline">Quality White Meat</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Our Story</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </button>
+    <button aria-label="Wishlist">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </button>
+    <button class="cart-btn" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="cart-badge">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Farm Fresh · Kisumu, Kenya</div>
+    <h1>The Finest Cuts,<br><em>Delivered Fresh</em></h1>
+    <p class="hero-sub">Premium chicken sourced from trusted local farms — butchered to order, cold-chain handled, and at your door same day.</p>
+    <a href="#" class="btn-primary">
+      Shop Now
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 12l3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="trust-label">Farm Sourced</div><div class="trust-desc">Directly from trusted local farms</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="trust-label">Butchered Fresh</div><div class="trust-desc">Cut to order every morning</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8h4l3 3v5h-7V8z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div><div class="trust-label">Same-Day Delivery</div><div class="trust-desc">Order before 12PM, get it today</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="trust-label">Cold Chain</div><div class="trust-desc">Temperature-controlled, always</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="section-header">
+    <div class="section-eyebrow">Explore the Range</div>
+    <h2 class="section-title">Shop by Category</h2>
+    <p class="section-sub">From whole birds to specialty cuts — everything your kitchen needs, fresh and ready.</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-tile" href="#">
+      <img src="chicken parts/whole chicken.jpg" alt="Capon Chicken" loading="lazy">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-info">
+        <div class="cat-tile-name">Premium Capon</div>
+        <div class="cat-tile-count">Whole birds &amp; halves</div>
+      </div>
+      <div class="cat-tile-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+    <a class="cat-tile" href="#">
+      <img src="chicken parts/tribegrill pack.png" alt="Kienyeji Chicken" loading="lazy">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-info">
+        <div class="cat-tile-name">Kienyeji</div>
+        <div class="cat-tile-count">Free-range, natural rearing</div>
+      </div>
+      <div class="cat-tile-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+    <a class="cat-tile" href="#">
+      <img src="chicken parts/chefs special.png" alt="Specialty Cuts" loading="lazy">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-info">
+        <div class="cat-tile-name">Specialty Cuts</div>
+        <div class="cat-tile-count">Chef-grade precision cuts</div>
+      </div>
+      <div class="cat-tile-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+    <a class="cat-tile" href="#">
+      <img src="chicken parts/chicken eggs.png" alt="Farm Eggs" loading="lazy">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-info">
+        <div class="cat-tile-name">Farm Eggs</div>
+        <div class="cat-tile-count">Collected fresh daily</div>
+      </div>
+      <div class="cat-tile-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="products-header">
+    <div>
+      <div class="section-eyebrow">Customer Favourites</div>
+      <h2 class="section-title">Best Sellers</h2>
+    </div>
+    <a href="#" class="view-all">View All Products <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="product-grid" id="productGrid">
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken fillets.jpg" alt="Chicken Breast">
+        <span class="product-badge">Popular</span>
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per KG</div>
+        <div class="product-name">Chicken Breast (Boneless)</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 650</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken wings.jpg" alt="Chicken Wings">
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per KG</div>
+        <div class="product-name">Chicken Wings</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 490</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken thighs.jpg" alt="Chicken Thigh">
+        <span class="product-badge">New</span>
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per KG</div>
+        <div class="product-name">Chicken Thigh (Boneless)</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 600</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/whole turkey.png" alt="Kienyeji Chicken">
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per Piece</div>
+        <div class="product-name">Kienyeji (Free Range)</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 1,000</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken gizzard.jpg" alt="Chicken Gizzards">
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per KG</div>
+        <div class="product-name">Chicken Gizzards</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 500</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken whole.png" alt="Spring Chicken">
+        <span class="product-badge">Fresh In</span>
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per Piece</div>
+        <div class="product-name">Spring Chicken</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 450</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken eggs.png" alt="Farm Eggs">
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per Tray (30)</div>
+        <div class="product-name">Farm Eggs</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 580</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken fillets.jpg" alt="Chicken Cubes">
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per KG</div>
+        <div class="product-name">Chicken Cubes (Boneless Breast)</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 650</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="product-card">
+      <div class="product-img-wrap">
+        <img class="product-img" src="chicken parts/chicken feet..jpg" alt="Chicken Feet">
+      </div>
+      <div class="product-body">
+        <div class="product-unit">Per KG</div>
+        <div class="product-name">Chicken Feet</div>
+        <div class="product-footer">
+          <span class="product-price">KSh 250</span>
+          <button class="add-to-cart" aria-label="Add to cart">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<div class="story">
+  <img class="story-img" src="chicken parts/chicken parts.jpg" alt="Kuku Kisumu Farm">
+  <div class="story-content">
+    <div class="story-eyebrow">Our Story</div>
+    <h2>Proudly Local.<br><em>Unapologetically Fresh.</em></h2>
+    <p>Kuku Kisumu was born in Kisumu with a simple belief: Kenyan families deserve access to premium-quality chicken at fair prices. We work directly with trusted local farms, butcher everything fresh every morning, and ensure every cut reaches you at its best — no middlemen, no shortcuts.</p>
+    <a href="#" class="btn-outline">
+      Learn More
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-header">
+    <div class="section-eyebrow">What Customers Say</div>
+    <h2 class="section-title">Loved Across Kisumu</h2>
+    <p class="section-sub">Real feedback from our growing tribe of happy households and restaurants.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote-mark">"</div>
+      <p class="testi-text">The quality is genuinely a cut above. I ordered the Capon for Sunday lunch and the whole family noticed the difference — juicier, more flavourful than anything from the supermarket.</p>
+      <div class="testi-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testi-author">Wanjiku M.</div>
+      <div class="testi-location">Kakamega Town, Kakamega</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote-mark">"</div>
+      <p class="testi-text">We supply our restaurant from Kuku Kisumu exclusively. The consistency of the cuts and the same-day delivery means our kitchen always runs smoothly. Truly professional service.</p>
+      <div class="testi-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testi-author">Chef Kamau O.</div>
+      <div class="testi-location">Milimani, Kisumu</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote-mark">"</div>
+      <p class="testi-text">Ordered Kienyeji for the first time and I was blown away. You can taste the difference when the chicken has been raised properly. Will never go back to supermarket chicken again.</p>
+      <div class="testi-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="testi-author">Amina S.</div>
+      <div class="testi-location">Nyalenda, Kisumu</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">Kuku Kisumu</div>
+      <div class="tagline">Quality White Meat</div>
+      <p>Kisumu's premium fresh chicken brand. Farm-sourced, butchered fresh, and delivered to your door the same day.</p>
+      <div class="payment-wrap">
+        <div class="payment-label">We Accept</div>
+        <div class="mpesa-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          M-Pesa
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#">Capon Chicken</a></li>
+        <li><a href="#">Kienyeji (Free Range)</a></li>
+        <li><a href="#">Specialty Cuts</a></li>
+        <li><a href="#">Chicken Parts</a></li>
+        <li><a href="#">Farm Eggs</a></li>
+        <li><a href="#">Wholesale Offers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Contact Us</div>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Kisumu Town, next to Kisumu Capital — Kibos Road</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+254 780 25430</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@kukutribe.com</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">Follow Us</div>
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.335-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.822 9.822 0 01-5.002-1.369l-.36-.212-3.72.887.924-3.623-.235-.373A9.787 9.787 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182c5.41 0 9.818 4.408 9.818 9.818 0 5.41-4.408 9.818-9.818 9.818z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Kuku Kisumu. All rights reserved.</span>
+    <span>Butchered fresh · Kisumu, Kenya</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/254797979447?text=Hello%2C%20I%27d%20like%20to%20order%20from%20Kuku%20Kisumu" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.335-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.822 9.822 0 01-5.002-1.369l-.36-.212-3.72.887.924-3.623-.235-.373A9.787 9.787 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182c5.41 0 9.818 4.408 9.818 9.818 0 5.41-4.408 9.818-9.818 9.818z"/></svg>
+</a>
+
+<script>
+  // Sticky nav shadow
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Hero parallax + load animation
+  const heroBg = document.getElementById('heroBg');
+  setTimeout(() => heroBg.classList.add('loaded'), 100);
+  window.addEventListener('scroll', () => {
+    const offset = window.scrollY * 0.3;
+    heroBg.style.transform = `scale(1) translateY(${offset}px)`;
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.trust-item, .product-card, .testi-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Add to cart interaction
+  let cartCount = 0;
+  const cartBadge = document.querySelector('.cart-badge');
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', function() {
+      cartCount++;
+      cartBadge.textContent = cartCount;
+      cartBadge.style.transform = 'scale(1.4)';
+      setTimeout(() => cartBadge.style.transform = 'scale(1)', 200);
+      this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+      this.style.background = 'var(--green)';
+      this.style.borderColor = 'var(--green)';
+      this.querySelector('svg').style.stroke = '#fff';
+      setTimeout(() => {
+        this.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>';
+        this.style.background = '';
+        this.style.borderColor = '';
+        this.querySelector('svg').style.stroke = '';
+      }, 1400);
+    });
+  });
+</script>
+</body>
+</html>
