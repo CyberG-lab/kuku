@@ -8,12 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<base target="_blank">
 </head>
 <body>
 
 <!-- TOP BAR -->
 <div class="topbar">
-  <span>🚚 Same-day delivery in Kisumu &amp; surrounds — Order before 12PM</span>
+  <span>🚚 Same-day delivery in Kisumu &amp; surrounds</span>
   <a href="https://wa.me/25478025430">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.335-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.822 9.822 0 01-5.002-1.369l-.36-.212-3.72.887.924-3.623-.235-.373A9.787 9.787 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182c5.41 0 9.818 4.408 9.818 9.818 0 5.41-4.408 9.818-9.818 9.818z"/></svg>
     +254 780 25430
@@ -30,7 +31,7 @@
     <li><a href="#">Home</a></li>
     <li><a href="#">Shop</a></li>
     <li><a href="#">Our Story</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-actions">
     <button aria-label="Search">
@@ -42,6 +43,10 @@
     <button class="cart-btn" aria-label="Cart">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       <span class="cart-badge">0</span>
+    </button>
+    <button class="contact-trigger" id="contactTrigger" aria-label="Contact us">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Contact
     </button>
   </div>
 </nav>
@@ -83,7 +88,7 @@
       <div class="trust-icon">
         <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8h4l3 3v5h-7V8z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
       </div>
-      <div><div class="trust-label">Same-Day Delivery</div><div class="trust-desc">Order before 12PM, get it today</div></div>
+      <div><div class="trust-label">Same-Day Delivery</div><div class="trust-desc"></div></div>
     </div>
     <div class="trust-item">
       <div class="trust-icon">
@@ -283,7 +288,7 @@
       </div>
     </div>
 
-<div class="product-card">
+    <div class="product-card">
       <div class="product-img-wrap">
         <img class="product-img" src="image/chicken parts/chicken feet..jpg" alt="Chicken Feet">
       </div>
@@ -365,6 +370,94 @@
   </div>
 </section>
 
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2>We are Here to<br><em>Help You</em></h2>
+      <p>Have a question about our products, wholesale orders, or delivery? Reach out — we reply within the hour during business hours.</p>
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span>Kisumu Town, next to Kisumu Capital — Kibos Road</span>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <a href="tel:+25478025430">+254 780 25430</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <a href="mailto:info@kukutribe.com">info@kukutribe.com</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span>Mon – Sat: 6:00 AM – 7:00 PM</span>
+        </div>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Kibos+Road+Kisumu+Kenya" class="visit-us-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Visit Us on Maps
+      </a>
+    </div>
+    <div class="contact-right">
+      <h3>Send a Message</h3>
+      <p class="form-sub">Fill in the form below and we will get back to you shortly.</p>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">Select a topic</option>
+            <option value="order">Order Inquiry</option>
+            <option value="wholesale">Wholesale / Bulk</option>
+            <option value="delivery">Delivery Question</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
+        </div>
+        <div class="form-actions">
+          <but          <div class="form-actions">
+            <a href="https://wa.me/25478025430?text=Hello%20Kuku%20Kisumu%2C%20I%20would%20like%20to%20send%20a%20message." class="submit-btn whatsapp-btn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M16.4 7.6c-.4-.4-1-.4-1.4 0l-.7.7c-.4.4-.4 1 0 1.4l.3.3c.1.1.2.3.1.4-.1.1-1 .9-1.1 1-.1.1-.3.1-.4.1-.1 0-.2 0-.4-.1-.6-.2-1.2-.6-1.7-1.1-.5-.5-1-1.1-1.2-1.8-.1-.3 0-.5.1-.8.1-.3.3-.5.5-.7l.7-.7c.4-.4.4-1 0-1.4L9.6 6.6c-.4-.4-1-.4-1.4 0L7.5 7.3c-.8.8-1.1 1.9-.9 3 .3 1.6 1.4 3.1 2.8 4.1 1.4 1 3.2 1.3 4.8 1 .9-.2 1.7-.7 2.3-1.3l.5-.5c.4-.4.4-1 0-1.4l-1.1-1.1zM12 2C6.5 2 2 6.5 2 12c0 2.4.9 4.7 2.6 6.4L2 22l3.6-2.6C8 20 10 21 12 21c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+              Send Message
+              <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -427,10 +520,113 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Kuku Kisumu. All rights reserved.</span>
+    <span>&copy; 2026 Kuku Kisumu. All rights reserved.</span>
     <span>Butchered fresh · Kisumu, Kenya</span>
   </div>
 </footer>
+
+<!-- iOS-STYLE CONTACT OVERLAY -->
+<div class="contact-overlay" id="contactOverlay">
+  <div class="overlay-backdrop" id="overlayBackdrop"></div>
+  <div class="overlay-sheet">
+    <div class="sheet-header">
+      <h2>Contact Us</h2>
+      <button class="sheet-close" id="sheetClose" aria-label="Close">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body">
+      <!-- Visit Us Card -->
+      <div class="sheet-section">
+        <div class="visit-map-card">
+          <div class="map-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h4>Visit Our Shop</h4>
+          <p>Kisumu Town, next to Kisumu Capital — Kibos Road</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Kibos+Road+Kisumu+Kenya" class="visit-map-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Open in Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Methods -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Reach Out</div>
+        <a href="tel:+25478025430" class="sheet-contact-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="card-content">
+            <div class="card-label">Call Us</div>
+            <div class="card-value">+254 780 25430</div>
+          </div>
+          <svg class="card-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="mailto:info@kukutribe.com" class="sheet-contact-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="card-content">
+            <div class="card-label">Email</div>
+            <div class="card-value">info@kukutribe.com</div>
+          </div>
+          <svg class="card-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/254797979447?text=Hello%2C%20I%27d%20like%20to%20order%20from%20Kuku%20Kisumu" class="sheet-contact-card" target="_blank" rel="noopener">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.335-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.822 9.822 0 01-5.002-1.369l-.36-.212-3.72.887.924-3.623-.235-.373A9.787 9.787 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182c5.41 0 9.818 4.408 9.818 9.818 0 5.41-4.408 9.818-9.818 9.818z"/></svg>
+          </div>
+          <div class="card-content">
+            <div class="card-label">WhatsApp</div>
+            <div class="card-value">Chat with us now</div>
+          </div>
+          <svg class="card-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Business Hours -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Business Hours</div>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>6:00 AM – 7:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>6:00 AM – 7:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>6:00 AM – 7:00 PM</td></tr>
+          <tr><td>Thursday</td><td>6:00 AM – 7:00 PM</td></tr>
+          <tr><td>Friday</td><td>6:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>6:00 AM – 7:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+
+      <!-- Socials -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Follow Us</div>
+        <div class="sheet-socials">
+          <a href="#" class="sheet-social" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="sheet-social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="sheet-social" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <span>TikTok</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-footer">
+      <a href="https://wa.me/254797979447?text=Hello%2C%20I%27d%20like%20to%20order%20from%20Kuku%20Kisumu" class="sheet-cta-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.854L0 24l6.335-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.822 9.822 0 01-5.002-1.369l-.36-.212-3.72.887.924-3.623-.235-.373A9.787 9.787 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182c5.41 0 9.818 4.408 9.818 9.818 0 5.41-4.408 9.818-9.818 9.818z"/></svg>
+        Order on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/254797979447?text=Hello%2C%20I%27d%20like%20to%20order%20from%20Kuku%20Kisumu" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -484,6 +680,57 @@
         this.querySelector('svg').style.stroke = '';
       }, 1400);
     });
+  });
+
+  // Contact Overlay Logic
+  const contactTrigger = document.getElementById('contactTrigger');
+  const contactOverlay = document.getElementById('contactOverlay');
+  const overlayBackdrop = document.getElementById('overlayBackdrop');
+  const sheetClose = document.getElementById('sheetClose');
+
+  function openOverlay() {
+    contactOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    contactOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  contactTrigger.addEventListener('click', openOverlay);
+  overlayBackdrop.addEventListener('click', closeOverlay);
+  sheetClose.addEventListener('click', closeOverlay);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contactOverlay.classList.contains('active')) {
+      closeOverlay();
+    }
+  });
+
+  // Highlight today's row in hours table
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const today = days[new Date().getDay()];
+  document.querySelectorAll('.hours-table tr').forEach(row => {
+    const dayCell = row.querySelector('td');
+    if (dayCell && dayCell.textContent.includes(today)) {
+      row.classList.add('today');
+    }
+  });
+
+  // Contact form handler
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.submit-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Message Sent!';
+    btn.style.background = 'var(--green-light)';
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.style.background = '';
+      this.reset();
+    }, 2500);
   });
 </script>
 </body>
